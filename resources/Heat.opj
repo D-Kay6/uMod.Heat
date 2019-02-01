@@ -1,0 +1,276 @@
+{
+  "Name": "Heat",
+  "TargetDirectory": "D:\\Servers\\Heat\\Heat_Data\\Managed",
+  "Manifests": [
+    {
+      "AssemblyName": "Assembly-CSharp.dll",
+      "Hooks": [
+        {
+          "Type": "Modify",
+          "Hook": {
+            "InjectionIndex": 0,
+            "RemoveCount": 0,
+            "Instructions": [
+              {
+                "OpCode": "ldarg_0",
+                "OpType": "None",
+                "Operand": null
+              },
+              {
+                "OpCode": "ldfld",
+                "OpType": "Field",
+                "Operand": "Assembly-CSharp|CodeHatch.Engine.Common.FileHasher|FileLocationFromDataPath"
+              },
+              {
+                "OpCode": "ldstr",
+                "OpType": "String",
+                "Operand": "/Managed/Assembly-CSharp.dll"
+              },
+              {
+                "OpCode": "callvirt",
+                "OpType": "Method",
+                "Operand": "mscorlib|System.String|Equals"
+              },
+              {
+                "OpCode": "brfalse",
+                "OpType": "Instruction",
+                "Operand": 0
+              },
+              {
+                "OpCode": "ldarg_0",
+                "OpType": "None",
+                "Operand": null
+              },
+              {
+                "OpCode": "ldstr",
+                "OpType": "String",
+                "Operand": "/Managed/Assembly-CSharp_Original.dll"
+              },
+              {
+                "OpCode": "stfld",
+                "OpType": "Field",
+                "Operand": "Assembly-CSharp|CodeHatch.Engine.Common.FileHasher|FileLocationFromDataPath"
+              }
+            ],
+            "HookTypeName": "Modify",
+            "Name": "CalculateOriginalHash [patch]",
+            "HookName": "CalculateOriginalHash",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "CodeHatch.Engine.Common.FileHasher",
+            "Flagged": true,
+            "Signature": {
+              "Exposure": 2,
+              "Name": "RecalculateHash",
+              "ReturnType": "System.UInt32",
+              "Parameters": [
+                "System.UInt32"
+              ]
+            },
+            "MSILHash": "mpkSkQyaMl1EvHx2potUrlbYCrChaGLNbjDTZQIKe/k=",
+            "BaseHookName": null,
+            "HookCategory": "_Patch"
+          }
+        },
+        {
+          "Type": "Modify",
+          "Hook": {
+            "InjectionIndex": 10,
+            "RemoveCount": 4,
+            "Instructions": [
+              {
+                "OpCode": "ldloc_2",
+                "OpType": "None",
+                "Operand": null
+              },
+              {
+                "OpCode": "isinst",
+                "OpType": "Type",
+                "Operand": "mscorlib|System.Reflection.Emit.AssemblyBuilder"
+              },
+              {
+                "OpCode": "brtrue_s",
+                "OpType": "Instruction",
+                "Operand": 47
+              }
+            ],
+            "HookTypeName": "Modify",
+            "Name": "HandleDynamicTypes [patch]",
+            "HookName": "HandleDynamicTypes",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "CodeHatch.Engine.Core.ReflectionUtil",
+            "Flagged": true,
+            "Signature": {
+              "Exposure": 2,
+              "Name": "GetTypeFromName",
+              "ReturnType": "System.Type",
+              "Parameters": [
+                "System.String",
+                "System.Boolean"
+              ]
+            },
+            "MSILHash": "PJc/kaVTiL3mS5Bk2ovYndIdA8bGEGBUmA/mkIKjVAQ=",
+            "BaseHookName": null,
+            "HookCategory": "_Patch"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 122,
+            "ReturnBehavior": 0,
+            "ArgumentBehavior": 0,
+            "ArgumentString": null,
+            "HookTypeName": "Simple",
+            "Name": "OnServerInitialized",
+            "HookName": "OnServerInitialized",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "CodeHatch.Gaming.GameManager",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 0,
+              "Name": "OnLoadingComplete",
+              "ReturnType": "System.Void",
+              "Parameters": []
+            },
+            "MSILHash": "lj+xWLEP8NeTab1fUcD7pGlRbYIk7fm6jWIfTMqlcA4=",
+            "BaseHookName": null,
+            "HookCategory": "Server"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 8,
+            "ReturnBehavior": 0,
+            "ArgumentBehavior": 0,
+            "ArgumentString": null,
+            "HookTypeName": "Simple",
+            "Name": "OnServerSave",
+            "HookName": "OnServerSave",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "CodeHatch.Gaming.GameManager",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 2,
+              "Name": "Save",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "System.Single"
+              ]
+            },
+            "MSILHash": "4QGNv7HBrMPPV9WL5pBVFGKNYCsUaFk/SnodmArwtvk=",
+            "BaseHookName": null,
+            "HookCategory": "Server"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 4,
+            "ReturnBehavior": 0,
+            "ArgumentBehavior": 0,
+            "ArgumentString": null,
+            "HookTypeName": "Simple",
+            "Name": "OnServerShutdown",
+            "HookName": "OnServerShutdown",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "CodeHatch.Engine.Networking.CoreServer",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 2,
+              "Name": "Shutdown",
+              "ReturnType": "System.Void",
+              "Parameters": []
+            },
+            "MSILHash": "xXB+uR07rSnVC3yweO28B2tPic76a4bMepY40uaKs0g=",
+            "BaseHookName": null,
+            "HookCategory": "Server"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 4,
+            "ReturnBehavior": 1,
+            "ArgumentBehavior": 4,
+            "ArgumentString": "l0",
+            "HookTypeName": "Simple",
+            "Name": "IOnServerCommand [internal]",
+            "HookName": "IOnServerCommand",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "CodeHatch.Engine.Core.Commands.CommandManager",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 2,
+              "Name": "ExecuteCommand",
+              "ReturnType": "System.Boolean",
+              "Parameters": [
+                "System.UInt64",
+                "System.String",
+                "System.String&"
+              ]
+            },
+            "MSILHash": "XNKiadj7gRwHvWnlt1t4hvPbJj7UDhyK6YlZJlxHGq8=",
+            "BaseHookName": null,
+            "HookCategory": "Server"
+          }
+        },
+        {
+          "Type": "InitMod",
+          "Hook": {
+            "InjectionIndex": 10,
+            "HookTypeName": "Initialize uMod",
+            "Name": "InitMod [internal]",
+            "HookName": "InitMod",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "CodeHatch.Gaming.GameManager",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 0,
+              "Name": "Awake",
+              "ReturnType": "System.Void",
+              "Parameters": []
+            },
+            "MSILHash": "u86xQOf8SfZ8NdtYVHNVFiYqQIcCkWRzU1HThYyRAKk=",
+            "BaseHookName": null,
+            "HookCategory": "Server"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 11,
+            "ReturnBehavior": 0,
+            "ArgumentBehavior": 0,
+            "ArgumentString": null,
+            "HookTypeName": "Simple",
+            "Name": "InitLogging [internal]",
+            "HookName": "InitLogging",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "CodeHatch.Gaming.GameManager",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 0,
+              "Name": "Awake",
+              "ReturnType": "System.Void",
+              "Parameters": []
+            },
+            "MSILHash": "u86xQOf8SfZ8NdtYVHNVFiYqQIcCkWRzU1HThYyRAKk=",
+            "BaseHookName": "InitMod [internal]",
+            "HookCategory": "Server"
+          }
+        }
+      ],
+      "Modifiers": [],
+      "Fields": [
+        {
+          "Name": "IPlayer",
+          "AssemblyName": "Assembly-CSharp.dll",
+          "TypeName": "CodeHatch.Engine.Networking.Player",
+          "FieldType": "uMod|uMod.Libraries.Universal.IPlayer",
+          "Flagged": false
+        }
+      ]
+    }
+  ]
+}

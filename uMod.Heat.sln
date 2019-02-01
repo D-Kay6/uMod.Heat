@@ -1,0 +1,18 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2008
+MinimumVisualStudioVersion = 15.0
+Project("{F8FE7773-F252-41C9-A866-6DC5818C2BDD}") = "uMod.Heat", "src\uMod.Heat.csproj", "{42E9655F-7BBC-47B9-BFD6-CFC914002245}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{42E9655F-7BBC-47B9-BFD6-CFC914002245}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42E9655F-7BBC-47B9-BFD6-CFC914002245}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42E9655F-7BBC-47B9-BFD6-CFC914002245}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42E9655F-7BBC-47B9-BFD6-CFC914002245}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
