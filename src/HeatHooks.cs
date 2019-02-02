@@ -23,14 +23,11 @@ namespace uMod.Heat
         [HookMethod("IOnUserApprove")]
         private object IOnUserApprove(Player player)
         {
-            string id = player.Identifier;
-            string ip = player.Connection.IpAddress; // TODO: Handle potential NullReferenceException
-
             // Let universal know player is joining
             Universal.PlayerManager.PlayerJoin(player.Identifier, player.Name); // TODO: Handle this automatically
 
             // Call universal hook
-            object canLogin = Interface.Call("CanPlayerLogin", player.Name, id, ip);
+            object canLogin = Interface.Call("CanPlayerLogin", player.Name, player.Identifier, player.Connection.IpAddress); // TODO: Handle potential NullReferenceException
             if (canLogin is string || canLogin is bool && !(bool)canLogin)
             {
                 // Reject the player with message
@@ -40,7 +37,7 @@ namespace uMod.Heat
             }
 
             // Let plugins know
-            Interface.Call("OnPlayerApproved", player.Name, id, ip);
+            Interface.Call("OnPlayerApproved", player.Name, player.Identifier, player.Connection.IpAddress); // TODO: Handle potential NullReferenceException
 
             return null;
         }
@@ -54,7 +51,7 @@ namespace uMod.Heat
         private object IOnPlayerChat(PlayerMessageEvent evt)
         {
             // Ignore the server player
-            if (evt.SenderId == 9999999999)
+            if (evt.Sender.Equals(CodeHatch.Engine.Networking.Server.ServerPlayer))
             {
                 return null;
             }
@@ -80,7 +77,7 @@ namespace uMod.Heat
         private object IOnPlayerCommand(PlayerCommandEvent evt)
         {
             // Ignore the server player
-            if (evt.SenderId == 9999999999)
+            if (evt.Sender.Equals(CodeHatch.Engine.Networking.Server.ServerPlayer))
             {
                 return null;
             }
@@ -107,7 +104,7 @@ namespace uMod.Heat
         private void IOnPlayerConnected(Player heatPlayer)
         {
             // Ignore the server player
-            if (heatPlayer.ID == 9999999999)
+            if (heatPlayer.Equals(CodeHatch.Engine.Networking.Server.ServerPlayer))
             {
                 return;
             }
@@ -155,7 +152,7 @@ namespace uMod.Heat
         private void IOnPlayerDisconnected(Player heatPlayer)
         {
             // Ignore the server player
-            if (heatPlayer.ID == 9999999999)
+            if (heatPlayer.Equals(CodeHatch.Engine.Networking.Server.ServerPlayer))
             {
                 return;
             }
@@ -179,7 +176,7 @@ namespace uMod.Heat
         private object IOnPlayerGroupChat(PlayerMessageEvent evt)
         {
             // Ignore the server player
-            if (evt.SenderId == 9999999999)
+            if (evt.Sender.Equals(CodeHatch.Engine.Networking.Server.ServerPlayer))
             {
                 return null;
             }
@@ -206,7 +203,7 @@ namespace uMod.Heat
         private object IOnPlayerWhisper(PlayerMessageEvent evt)
         {
             // Ignore the server player
-            if (evt.SenderId == 9999999999)
+            if (evt.Sender.Equals(CodeHatch.Engine.Networking.Server.ServerPlayer))
             {
                 return null;
             }
