@@ -159,6 +159,20 @@ namespace uMod.Heat
         }
 
         /// <summary>
+        /// Called when the player runs a command
+        /// </summary>
+        /// <param name="evt"></param>
+        [HookMethod("OnPlayerCommand")]
+        private void OnPlayerCommand(PlayerCommandEvent evt)
+        {
+            if (evt.Sender != null)
+            {
+                // Call universal hook
+                Interface.Call("OnPlayerCommand", evt.Sender.IPlayer, evt.Command, evt.CommandArgs);
+            }
+        }
+
+        /// <summary>
         /// Called when the player is kicked
         /// </summary>
         /// <param name="evt"></param>

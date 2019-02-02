@@ -311,6 +311,31 @@
             "BaseHookName": null,
             "HookCategory": "Player"
           }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "ReturnBehavior": 1,
+            "ArgumentBehavior": 2,
+            "ArgumentString": null,
+            "HookTypeName": "Simple",
+            "Name": "OnPlayerCommand",
+            "HookName": "OnPlayerCommand",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "CodeHatch.Engine.Chat.ChatListener",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 0,
+              "Name": "OnPlayerCommand",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "CodeHatch.Engine.Chat.PlayerCommandEvent"
+              ]
+            },
+            "MSILHash": "KYmLpz8KRGumx/Y+cRIA6VEjNFxDs8yTG25A6CfGR+k=",
+            "BaseHookName": null,
+            "HookCategory": "Player"
+          }
         }
       ],
       "Modifiers": [],
