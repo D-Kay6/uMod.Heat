@@ -1,4 +1,4 @@
-﻿using CodeHatch.Common;
+using CodeHatch.Common;
 using CodeHatch.Engine.Chat;
 using CodeHatch.Engine.Networking;
 using CodeHatch.Networking.Events.Players;
@@ -66,6 +66,32 @@ namespace uMod.Heat
             {
                 // Cancel chat message event
                 evt.SetCancelled(); // TODO: Test
+                return true;
+            }
+
+            return null;
+        }
+
+        /// <summary>
+        /// Called when the player runs a command
+        /// </summary>
+        /// <param name="evt"></param>
+        [HookMethod("IOnPlayerCommand")]
+        private object IOnPlayerCommand(PlayerCommandEvent evt)
+        {
+            // Ignore the server player
+            if (evt.SenderId == 9999999999)
+            {
+                return null;
+            }
+
+            // Call game-specific and universal hooks
+            object hookSpecific = Interface.Call("OnPlayerCommand", evt);
+            object hookUniversal = Interface.Call("OnPlayerCommand", evt.Sender.IPlayer, evt.Message);
+            if (hookSpecific != null || hookUniversal != null)
+            {
+                // Cancel chat command event
+                evt.SetCancelled();
                 return true;
             }
 
@@ -155,20 +181,6 @@ namespace uMod.Heat
             {
                 // Call universal hook
                 Interface.Call("OnPlayerBanned", evt.Player.IPlayer, evt.Reason);
-            }
-        }
-
-        /// <summary>
-        /// Called when the player runs a command
-        /// </summary>
-        /// <param name="evt"></param>
-        [HookMethod("OnPlayerCommand")]
-        private void OnPlayerCommand(PlayerCommandEvent evt)
-        {
-            if (evt.Sender != null)
-            {
-                // Call universal hook
-                Interface.Call("OnPlayerCommand", evt.Sender.IPlayer, evt.Command, evt.CommandArgs);
             }
         }
 
