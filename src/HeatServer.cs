@@ -192,6 +192,7 @@ namespace uMod.Heat
         {
             if (!string.IsNullOrEmpty(message))
             {
+                // TODO: Add universal avatar handling
                 message = args.Length > 0 ? string.Format(Formatter.ToRoKAnd7DTD(message), args) : Formatter.ToRoKAnd7DTD(message);
                 string formatted = prefix != null ? $"{prefix} {message}" : message;
                 Server.BroadcastMessage(formatted);

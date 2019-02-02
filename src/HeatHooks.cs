@@ -1,4 +1,4 @@
-using CodeHatch.Common;
+﻿using CodeHatch.Common;
 using CodeHatch.Engine.Chat;
 using CodeHatch.Engine.Networking;
 using CodeHatch.Networking.Events.Players;
@@ -88,20 +88,18 @@ namespace uMod.Heat
 
             if (permission.IsLoaded)
             {
-                string id = heatPlayer.ID.ToString();
-
                 // Update player's stored username
-                permission.UpdateNickname(id, heatPlayer.Name);
+                permission.UpdateNickname(heatPlayer.Identifier, heatPlayer.Name);
 
                 // Set default groups, if necessary
                 uModConfig.DefaultGroups defaultGroups = Interface.uMod.Config.Options.DefaultGroups;
-                if (!permission.UserHasGroup(id, defaultGroups.Players))
+                if (!permission.UserHasGroup(heatPlayer.Identifier, defaultGroups.Players))
                 {
-                    permission.AddUserGroup(id, defaultGroups.Players);
+                    permission.AddUserGroup(heatPlayer.Identifier, defaultGroups.Players);
                 }
-                if (heatPlayer.HasPermission("admin") && !permission.UserHasGroup(id, defaultGroups.Administrators))
+                if (heatPlayer.HasPermission("admin") && !permission.UserHasGroup(heatPlayer.Identifier, defaultGroups.Administrators))
                 {
-                    permission.AddUserGroup(id, defaultGroups.Administrators);
+                    permission.AddUserGroup(heatPlayer.Identifier, defaultGroups.Administrators);
                 }
             }
 
@@ -181,20 +179,26 @@ namespace uMod.Heat
         [HookMethod("OnPlayerSpawn")]
         private void OnPlayerSpawn(PlayerFirstSpawnEvent evt)
         {
-            // Call universal hook
-            Interface.Call("OnPlayerSpawn", evt.Player.IPlayer);
+            if (evt.Player != null)
+            {
+                // Call universal hook
+                Interface.Call("OnPlayerSpawn", evt.Player.IPlayer);
+            }
         }
 
         /// <summary>
         /// Called when the player has spawned
         /// </summary>
         /// <param name="evt"></param>
-        /*[HookMethod("OnPlayerSpawned")]
-        private void OnPlayerSpawned(PlayerPreSpawnCompleteEvent evt)
+        [HookMethod("OnPlayerSpawned")]
+        private void OnPlayerSpawned(PlayerSpawnEvent evt)
         {
-            // Call universal hook
-            Interface.Call("OnPlayerSpawned", evt.Player.IPlayer);
-        }*/
+            if (evt.Player != null)
+            {
+                // Call universal hook
+                Interface.Call("OnPlayerSpawned", evt.Player.IPlayer, evt.Position);
+            }
+        }
 
         /// <summary>
         /// Called when the player is respawning
@@ -203,8 +207,11 @@ namespace uMod.Heat
         [HookMethod("OnPlayerRespawn")] // Not being called every time?
         private void OnPlayerRespawn(PlayerRespawnEvent evt)
         {
-            // Call universal hook
-            Interface.Call("OnPlayerRespawn", evt.Player.IPlayer);
+            if (evt.Player != null)
+            {
+                // Call universal hook
+                Interface.Call("OnPlayerRespawn", evt.Player.IPlayer, evt.Position);
+            }
         }
 
         #endregion Player Hooks

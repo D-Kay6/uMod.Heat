@@ -114,7 +114,7 @@ namespace uMod.Heat
             CSharpPluginLoader.PluginReferences.UnionWith(DefaultReferences);
         }
 
-        private static void HandleLog(string message, string stackTrace, LogType logType)
+        private static void HandleLog(string message, string stackTrace, LogType logType) // TODO: Make use of this
         {
             if (!string.IsNullOrEmpty(message) && !Filter.Any(message.Contains))
             {
