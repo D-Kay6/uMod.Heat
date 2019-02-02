@@ -1,4 +1,4 @@
-﻿using CodeHatch.Common;
+using CodeHatch.Common;
 using CodeHatch.Engine.Chat;
 using CodeHatch.Engine.Networking;
 using CodeHatch.Networking.Events.Players;
@@ -136,14 +136,42 @@ namespace uMod.Heat
                 return;
             }
 
-            // Let universal know
-            Universal.PlayerManager.PlayerDisconnected(heatPlayer);
-
             // Call game-specific hook
             Interface.Call("OnPlayerDisconnected", heatPlayer);
 
             // Call universal hook
             Interface.Call("OnPlayerDisconnected", heatPlayer.IPlayer, lang.GetMessage("Unknown", this, heatPlayer.IPlayer.Id));
+
+            // Let universal know
+            Universal.PlayerManager.PlayerDisconnected(heatPlayer);
+        }
+
+        /// <summary>
+        /// Called when the player is banned
+        /// </summary>
+        /// <param name="evt"></param>
+        [HookMethod("OnPlayerBanned")]
+        private void OnPlayerBanned(PlayerKickEvent evt)
+        {
+            if (evt.Player != null)
+            {
+                // Call universal hook
+                Interface.Call("OnPlayerBanned", evt.Player.IPlayer, evt.Reason);
+            }
+        }
+
+        /// <summary>
+        /// Called when the player is kicked
+        /// </summary>
+        /// <param name="evt"></param>
+        [HookMethod("OnPlayerKicked")]
+        private void OnPlayerKicked(PlayerKickEvent evt)
+        {
+            if (evt.Player != null)
+            {
+                // Call universal hook
+                Interface.Call("OnPlayerKicked", evt.Player.IPlayer, evt.Reason);
+            }
         }
 
         /// <summary>
