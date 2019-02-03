@@ -43,9 +43,25 @@ namespace uMod.Heat
                 {
                     if (address == null)
                     {
-                        WebClient webClient = new WebClient();
-                        IPAddress.TryParse(webClient.DownloadString("http://api.ipify.org"), out address);
-                        return address;
+                        uint ip;
+                        string providerIp = DedicatedServerBypass.Settings.BindIP;
+                        if (Utility.ValidateIPv4(providerIp) && !Utility.IsLocalIP(providerIp))
+                        {
+                            IPAddress.TryParse(providerIp, out address);
+                            Interface.uMod.LogInfo($"IP address from server configuration: {address}");
+                        }
+                        else if ((ip = Steamworks.SteamGameServer.GetPublicIP()) > 0)
+                        {
+                            string publicIp = string.Concat(ip >> 24 & 255, ".", ip >> 16 & 255, ".", ip >> 8 & 255, ".", ip & 255); // TODO: uint IP address utility method
+                            IPAddress.TryParse(publicIp, out address);
+                            Interface.uMod.LogInfo($"IP address from Steam query: {address}");
+                        }
+                        else
+                        {
+                            WebClient webClient = new WebClient();
+                            IPAddress.TryParse(webClient.DownloadString("http://api.ipify.org"), out address);
+                            Interface.uMod.LogInfo($"IP address from external API: {address}");
+                        }
                     }
 
                     return address;
