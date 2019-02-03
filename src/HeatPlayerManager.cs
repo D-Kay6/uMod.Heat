@@ -38,20 +38,20 @@ namespace uMod.Heat
             }
         }
 
-        internal void PlayerJoin(string playerId, string name)
+        internal void PlayerJoin(string playerId, string playerName)
         {
             if (playerData.TryGetValue(playerId, out PlayerRecord record))
             {
-                record.Name = name;
+                record.Name = playerName;
                 playerData[playerId] = record;
                 allPlayers.Remove(playerId);
-                allPlayers.Add(playerId, new HeatPlayer(playerId, name));
+                allPlayers.Add(playerId, new HeatPlayer(playerId, playerName));
             }
             else
             {
-                record = new PlayerRecord { Id = playerId, Name = name };
+                record = new PlayerRecord { Id = playerId, Name = playerName };
                 playerData.Add(playerId, record);
-                allPlayers.Add(playerId, new HeatPlayer(playerId, name));
+                allPlayers.Add(playerId, new HeatPlayer(playerId, playerName));
             }
         }
 

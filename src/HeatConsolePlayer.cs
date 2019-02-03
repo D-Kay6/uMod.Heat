@@ -206,9 +206,11 @@ namespace uMod.Heat
         /// <param name="args"></param>
         public void Message(string message, string prefix, params object[] args)
         {
-            message = args.Length > 0 ? string.Format(Formatter.ToPlaintext(message), args) : Formatter.ToPlaintext(message);
-            string formatted = prefix != null ? $"{prefix} {message}" : message;
-            Interface.uMod.LogInfo(formatted);
+            if (!string.IsNullOrEmpty(message))
+            {
+                message = args.Length > 0 ? string.Format(Formatter.ToPlaintext(message), args) : Formatter.ToPlaintext(message);
+                CodeHatch.Engine.Chat.Console.AddMessage(prefix != null ? $"{prefix} {message}" : message);
+            }
         }
 
         /// <summary>

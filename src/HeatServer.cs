@@ -6,6 +6,7 @@ using CodeHatch.Networking.Events;
 using CodeHatch.Networking.Events.WorldEvents.TimeEvents;
 using System;
 using System.Globalization;
+using System.Linq;
 using System.Net;
 using uMod.Libraries.Universal;
 using uMod.Logging;
@@ -84,12 +85,12 @@ namespace uMod.Heat
         /// <summary>
         /// Gets the version or build number of the server
         /// </summary>
-        public string Version => GameInfo.VersionName; // TODO: Format
+        public string Version => GameInfo.Version.ToString();
 
         /// <summary>
         /// Gets the network protocol version of the server
         /// </summary>
-        public string Protocol => GameInfo.Version.ToString(); // TODO: Replace
+        public string Protocol => GameInfo.VersionName;
 
         /// <summary>
         /// Gets the language set by the server
@@ -192,10 +193,9 @@ namespace uMod.Heat
         {
             if (!string.IsNullOrEmpty(message))
             {
-                // TODO: Add universal avatar handling
-                message = args.Length > 0 ? string.Format(Formatter.ToRoKAnd7DTD(message), args) : Formatter.ToRoKAnd7DTD(message);
-                string formatted = prefix != null ? $"{prefix} {message}" : message;
-                Server.BroadcastMessage(formatted);
+                ulong avatarId = args.Length > 0 && args[0].IsSteamId() ? (ulong)args[0] : 0ul;
+                message = args.Length > 0 ? string.Format(Formatter.ToRoKAnd7DTD(message), avatarId != 0ul ? args.Skip(1) : args) : Formatter.ToPlaintext(message);
+                Server.BroadcastMessage(prefix != null ? $"{prefix} {message}" : message);
             }
         }
 

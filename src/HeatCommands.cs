@@ -1,4 +1,4 @@
-﻿using CodeHatch.Engine.Core.Commands;
+using CodeHatch.Engine.Core.Commands;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -105,7 +105,7 @@ namespace uMod.Heat
                 throw new CommandAlreadyExistsException(command);
             }
 
-            // Check if command already exists in another Universal plugin
+            // Check if command already exists in another universal plugin
             if (registeredCommands.TryGetValue(command, out RegisteredCommand cmd))
             {
                 if (cmd.OriginalCallback != null)
@@ -137,19 +137,19 @@ namespace uMod.Heat
 
             // Register command
             registeredCommands[command] = newCommand;
-            CommandManager.RegisteredCommands[command] = new CommandAttribute("/" + command, string.Empty)
+            CommandAttribute commandAttribute = new CommandAttribute("/" + command, string.Empty)
             {
                 Method = (Action<CommandInfo>)Delegate.CreateDelegate(typeof(Action<CommandInfo>), this,
-                    GetType().GetMethod(nameof(HandleCommand), BindingFlags.NonPublic | BindingFlags.Instance)) // TODO: Hamdle potential NullReferenceException
+                    GetType().GetMethod(nameof(HandleCommand), BindingFlags.NonPublic | BindingFlags.Instance)) // TODO: Handle potential NullReferenceException
             };
+            CommandManager.RegisteredCommands[command] = commandAttribute;
         }
 
         private void HandleCommand(CommandInfo cmdInfo)
         {
             if (registeredCommands.TryGetValue(cmdInfo.Label.ToLowerInvariant(), out RegisteredCommand _))
             {
-                IPlayer player = cmdInfo.Player.IPlayer ?? consolePlayer;
-                HandleChatMessage(player, $"/{cmdInfo.Label} {cmdInfo.RawArg}");
+                HandleChatMessage(cmdInfo.Player.IPlayer ?? consolePlayer, cmdInfo.Command);
             }
         }
 
@@ -196,14 +196,6 @@ namespace uMod.Heat
         /// <param name="message"></param>
         /// <returns></returns>
         public bool HandleChatMessage(IPlayer player, string message) => commandHandler.HandleChatMessage(player, message);
-
-        /// <summary>
-        /// Handles a console message
-        /// </summary>
-        /// <param name="player"></param>
-        /// <param name="message"></param>
-        /// <returns></returns>
-        public bool HandleConsoleMessage(IPlayer player, string message) => commandHandler.HandleConsoleMessage(player ?? consolePlayer, message);
 
         #endregion Message Handling
 

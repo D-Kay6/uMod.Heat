@@ -7,6 +7,7 @@ using CodeHatch.Game.Sleeping;
 using CodeHatch.Networking.Events;
 using System;
 using System.Globalization;
+using System.Linq;
 using uMod.Libraries;
 using uMod.Libraries.Universal;
 using UnityEngine;
@@ -18,20 +19,20 @@ namespace uMod.Heat
     /// </summary>
     public class HeatPlayer : IPlayer, IEquatable<IPlayer>
     {
-        private static Permission libPerms;
+        private static Permission permission;
         private readonly Player player;
         private readonly ulong steamId;
 
-        internal HeatPlayer(string playerId, string name)
+        internal HeatPlayer(string playerId, string playerName)
         {
-            if (libPerms == null)
+            if (permission == null)
             {
-                libPerms = Interface.uMod.GetLibrary<Permission>();
+                permission = Interface.uMod.GetLibrary<Permission>();
             }
 
-            Name = name.Sanitize();
-            steamId = ulong.Parse(playerId);
             Id = playerId;
+            Name = playerName.Sanitize();
+            steamId = ulong.Parse(playerId);
         }
 
         internal HeatPlayer(Player player) : this(player.Identifier, player.Name)
@@ -186,8 +187,9 @@ namespace uMod.Heat
         }
 
         /// <summary>
-        /// Renames the player to specified name <param name="name"></param>
+        /// Renames the player to specified name
         /// </summary>
+        /// <param name="name"></param>
         public void Rename(string name) => player.CurrentCharacter.ChangeName(name); // TODO: Handle potential NullReferenceException
 
         /// <summary>
@@ -263,10 +265,9 @@ namespace uMod.Heat
         {
             if (!string.IsNullOrEmpty(message))
             {
-                // TODO: Add universal avatar handling
-                message = args.Length > 0 ? string.Format(Formatter.ToRoKAnd7DTD(message), args) : Formatter.ToRoKAnd7DTD(message);
-                string formatted = prefix != null ? $"{prefix} {message}" : message;
-                player.SendMessage(formatted);
+                ulong avatarId = args.Length > 0 && args[0].IsSteamId() ? (ulong)args[0] : 0ul;
+                message = args.Length > 0 ? string.Format(Formatter.ToRoKAnd7DTD(message), avatarId != 0ul ? args.Skip(1) : args) : Formatter.ToPlaintext(message);
+                player.SendMessage(prefix != null ? $"{prefix} {message}" : message);
             }
         }
 
@@ -310,38 +311,38 @@ namespace uMod.Heat
         /// </summary>
         /// <param name="perm"></param>
         /// <returns></returns>
-        public bool HasPermission(string perm) => libPerms.UserHasPermission(Id, perm);
+        public bool HasPermission(string perm) => permission.UserHasPermission(Id, perm);
 
         /// <summary>
         /// Grants the specified permission on this player
         /// </summary>
         /// <param name="perm"></param>
-        public void GrantPermission(string perm) => libPerms.GrantUserPermission(Id, perm, null);
+        public void GrantPermission(string perm) => permission.GrantUserPermission(Id, perm, null);
 
         /// <summary>
         /// Strips the specified permission from this player
         /// </summary>
         /// <param name="perm"></param>
-        public void RevokePermission(string perm) => libPerms.RevokeUserPermission(Id, perm);
+        public void RevokePermission(string perm) => permission.RevokeUserPermission(Id, perm);
 
         /// <summary>
         /// Gets if the player belongs to the specified group
         /// </summary>
         /// <param name="group"></param>
         /// <returns></returns>
-        public bool BelongsToGroup(string group) => libPerms.UserHasGroup(Id, group);
+        public bool BelongsToGroup(string group) => permission.UserHasGroup(Id, group);
 
         /// <summary>
         /// Adds the player to the specified group
         /// </summary>
         /// <param name="group"></param>
-        public void AddToGroup(string group) => libPerms.AddUserGroup(Id, group);
+        public void AddToGroup(string group) => permission.AddUserGroup(Id, group);
 
         /// <summary>
         /// Removes the player from the specified group
         /// </summary>
         /// <param name="group"></param>
-        public void RemoveFromGroup(string group) => libPerms.RemoveUserGroup(Id, group);
+        public void RemoveFromGroup(string group) => permission.RemoveUserGroup(Id, group);
 
         #endregion Permissions
 

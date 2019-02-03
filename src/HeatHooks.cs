@@ -1,7 +1,9 @@
 ﻿using CodeHatch.Common;
 using CodeHatch.Engine.Chat;
+using CodeHatch.Engine.Core.Commands;
 using CodeHatch.Engine.Networking;
 using CodeHatch.Networking.Events.Players;
+using System;
 using uMod.Configuration;
 using uMod.Libraries.Universal;
 using uMod.Plugins;
@@ -84,7 +86,7 @@ namespace uMod.Heat
 
             // Call game-specific and universal hooks
             object hookSpecific = Interface.Call("OnPlayerCommand", evt);
-            object hookUniversal = Interface.Call("OnPlayerCommand", evt.Sender.IPlayer, evt.Message);
+            object hookUniversal = Interface.Call("OnPlayerCommand", evt.Sender.IPlayer, evt.Label, evt.CommandArgs);
             if (hookSpecific != null || hookUniversal != null)
             {
                 // Cancel chat command event
@@ -292,5 +294,32 @@ namespace uMod.Heat
         }
 
         #endregion Player Hooks
+
+        #region Server Hooks
+
+        /// <summary>
+        /// Called when a command is ran on the server
+        /// </summary>
+        /// <param name="cmdInfo"></param>
+        /// <returns></returns>
+        [HookMethod("IOnServerCommand")]
+        private object IOnServerCommand(CommandInfo cmdInfo)
+        {
+            // Call universal hook
+            if (Interface.Call("OnServerCommand", cmdInfo.Label, string.Join(" ", Array.ConvertAll(cmdInfo.Args, x => x.ToString()))) != null)
+            {
+                return true;
+            }
+
+            // Is it a universal command?
+            if (Universal.CommandSystem.HandleChatMessage(cmdInfo.Player.IPlayer, cmdInfo.Command))
+            {
+                return true;
+            }
+
+            return null;
+        }
+
+        #endregion Server Hooks
     }
 }
