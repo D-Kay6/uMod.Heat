@@ -311,12 +311,6 @@ namespace uMod.Heat
                 return true;
             }
 
-            // Is it a universal command?
-            if (Universal.CommandSystem.HandleChatMessage(cmdInfo.Player.IPlayer, cmdInfo.Command))
-            {
-                return true;
-            }
-
             return null;
         }
 

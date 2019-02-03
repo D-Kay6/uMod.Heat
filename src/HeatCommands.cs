@@ -137,12 +137,11 @@ namespace uMod.Heat
 
             // Register command
             registeredCommands[command] = newCommand;
-            CommandAttribute commandAttribute = new CommandAttribute("/" + command, string.Empty)
+            CommandManager.RegisteredCommands[command] = new CommandAttribute("/" + command, string.Empty)
             {
                 Method = (Action<CommandInfo>)Delegate.CreateDelegate(typeof(Action<CommandInfo>), this,
                     GetType().GetMethod(nameof(HandleCommand), BindingFlags.NonPublic | BindingFlags.Instance)) // TODO: Handle potential NullReferenceException
             };
-            CommandManager.RegisteredCommands[command] = commandAttribute;
         }
 
         private void HandleCommand(CommandInfo cmdInfo)
@@ -166,13 +165,13 @@ namespace uMod.Heat
         {
             if (registeredCommands.TryGetValue(command, out RegisteredCommand cmd))
             {
-                // Check if the command belongs to the plugin
+                // Check if command belongs to the plugin
                 if (plugin == cmd.Source)
                 {
-                    // Remove the chat command
+                    // Remove command
                     registeredCommands.Remove(command);
 
-                    // If this was originally a native Heat command then restore it, otherwise remove it
+                    // Restore if originally a native command, otherwise remove it
                     if (cmd.OriginalCallback != null)
                     {
                         CommandManager.RegisteredCommands[cmd.Command] = cmd.OriginalCallback;

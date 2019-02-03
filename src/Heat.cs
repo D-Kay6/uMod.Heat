@@ -867,16 +867,20 @@ namespace uMod.Heat
             }
         }
 
+        #endregion Save Command
+
+        #region Quit Command
+
         [HookMethod("QuitCommand")]
         private void QuitCommand(IPlayer player, string command, string[] args)
         {
             if (player.IsAdmin)
             {
-                Server.Command("quit");
+                Server.Command("shutdown");
             }
         }
 
-        #endregion Save Command
+        #endregion Quit Command
 
         #endregion Commands
     }
