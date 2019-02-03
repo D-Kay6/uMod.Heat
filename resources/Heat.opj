@@ -116,7 +116,7 @@
         {
           "Type": "Simple",
           "Hook": {
-            "InjectionIndex": 122,
+            "InjectionIndex": 124,
             "ReturnBehavior": 0,
             "ArgumentBehavior": 0,
             "ArgumentString": null,
@@ -132,7 +132,7 @@
               "ReturnType": "System.Void",
               "Parameters": []
             },
-            "MSILHash": "lj+xWLEP8NeTab1fUcD7pGlRbYIk7fm6jWIfTMqlcA4=",
+            "MSILHash": "rU8AOKy7iRNn2ey0yaiMb1g851pFUx7TYgGJlXfqHdo=",
             "BaseHookName": null,
             "HookCategory": "Server"
           }
@@ -140,7 +140,7 @@
         {
           "Type": "Simple",
           "Hook": {
-            "InjectionIndex": 8,
+            "InjectionIndex": 10,
             "ReturnBehavior": 0,
             "ArgumentBehavior": 0,
             "ArgumentString": null,
@@ -158,7 +158,7 @@
                 "System.Single"
               ]
             },
-            "MSILHash": "4QGNv7HBrMPPV9WL5pBVFGKNYCsUaFk/SnodmArwtvk=",
+            "MSILHash": "pRYjjUUgUWGf7bUGY9YHGq1a2EszbPRxJ8DD5ICyDRM=",
             "BaseHookName": null,
             "HookCategory": "Server"
           }
@@ -182,7 +182,7 @@
               "ReturnType": "System.Void",
               "Parameters": []
             },
-            "MSILHash": "xXB+uR07rSnVC3yweO28B2tPic76a4bMepY40uaKs0g=",
+            "MSILHash": "xxxSszOTLPqJiC9Qd4QZ2Eq0WuoPEAnoUIOXirpJL8I=",
             "BaseHookName": null,
             "HookCategory": "Server"
           }
