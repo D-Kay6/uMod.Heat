@@ -340,7 +340,7 @@
         {
           "Type": "Simple",
           "Hook": {
-            "InjectionIndex": 172,
+            "InjectionIndex": 113,
             "ReturnBehavior": 1,
             "ArgumentBehavior": 2,
             "ArgumentString": null,
@@ -360,58 +360,6 @@
             },
             "MSILHash": "/z2FCrSKS5LT/hQaMvthJX5klHroPH184N2b7nHKVc8=",
             "BaseHookName": null,
-            "HookCategory": "Player"
-          }
-        },
-        {
-          "Type": "Simple",
-          "Hook": {
-            "InjectionIndex": 369,
-            "ReturnBehavior": 1,
-            "ArgumentBehavior": 2,
-            "ArgumentString": null,
-            "HookTypeName": "Simple",
-            "Name": "IOnPlayerGroupChat [internal]",
-            "HookName": "IOnPlayerGroupChat",
-            "AssemblyName": "Assembly-CSharp.dll",
-            "TypeName": "CodeHatch.Engine.Chat.ChatListener",
-            "Flagged": false,
-            "Signature": {
-              "Exposure": 0,
-              "Name": "OnPlayerMessage",
-              "ReturnType": "System.Void",
-              "Parameters": [
-                "CodeHatch.Engine.Chat.PlayerMessageEvent"
-              ]
-            },
-            "MSILHash": "/z2FCrSKS5LT/hQaMvthJX5klHroPH184N2b7nHKVc8=",
-            "BaseHookName": "IOnPlayerChat [internal]",
-            "HookCategory": "Player"
-          }
-        },
-        {
-          "Type": "Simple",
-          "Hook": {
-            "InjectionIndex": 311,
-            "ReturnBehavior": 1,
-            "ArgumentBehavior": 2,
-            "ArgumentString": null,
-            "HookTypeName": "Simple",
-            "Name": "IOnPlayerWhisper [internal]",
-            "HookName": "IOnPlayerWhisper",
-            "AssemblyName": "Assembly-CSharp.dll",
-            "TypeName": "CodeHatch.Engine.Chat.ChatListener",
-            "Flagged": false,
-            "Signature": {
-              "Exposure": 0,
-              "Name": "OnPlayerMessage",
-              "ReturnType": "System.Void",
-              "Parameters": [
-                "CodeHatch.Engine.Chat.PlayerMessageEvent"
-              ]
-            },
-            "MSILHash": "/z2FCrSKS5LT/hQaMvthJX5klHroPH184N2b7nHKVc8=",
-            "BaseHookName": "IOnPlayerGroupChat [internal]",
             "HookCategory": "Player"
           }
         },

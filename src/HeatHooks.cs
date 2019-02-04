@@ -68,15 +68,21 @@ namespace uMod.Heat
                 return null;
             }
 
-            // Call game-specific and universal hooks
-            object hookSpecific = Interface.Call("OnPlayerChat", evt);
-            object hookUniversal = Interface.Call("OnPlayerChat", evt.Sender.IPlayer, evt.Message);
-            if (hookSpecific != null || hookUniversal != null)
+            // Only handle custom, global, and local chat for now
+            if (evt.Message.Channel == Channel.Custom || evt.Message.Channel == Channel.Global || evt.Message.Channel == Channel.Local)
             {
-                // Cancel chat message event
-                evt.SetCancelled();
-                return true;
+                // Call game-specific and universal hooks
+                object hookSpecific = Interface.Call("OnPlayerChat", evt);
+                object hookUniversal = Interface.Call("OnPlayerChat", evt.Sender.IPlayer, evt.Message);
+                if (hookSpecific != null || hookUniversal != null)
+                {
+                    // Cancel chat message event
+                    evt.SetCancelled();
+                    return true;
+                }
             }
+
+            // TODO: Handle Channel.Group and Channel.Whisper
 
             return null;
         }
@@ -177,60 +183,6 @@ namespace uMod.Heat
 
             // Let universal know
             Universal.PlayerManager.PlayerDisconnected(evt.Player);
-        }
-
-        /// <summary>
-        /// Called when the player sends a group chat message
-        /// </summary>
-        /// <param name="evt"></param>
-        /// <returns></returns>
-        [HookMethod("IOnPlayerGroupChat")]
-        private object IOnPlayerGroupChat(PlayerMessageEvent evt)
-        {
-            // Ignore the server player
-            if (evt.Sender.Equals(CodeHatch.Engine.Networking.Server.ServerPlayer))
-            {
-                return null;
-            }
-
-            // Call game-specific and universal hooks
-            object hookSpecific = Interface.Call("OnPlayerGroupChat", evt);
-            //object hookUniversal = Interface.Call("OnPlayerChat", evt.Sender.IPlayer, evt.Message);
-            if (hookSpecific != null/* || hookUniversal != null*/)
-            {
-                // Cancel chat message event
-                evt.SetCancelled();
-                return true;
-            }
-
-            return null;
-        }
-
-        /// <summary>
-        /// Called when the player sends a private chat message
-        /// </summary>
-        /// <param name="evt"></param>
-        /// <returns></returns>
-        [HookMethod("IOnPlayerWhisper")]
-        private object IOnPlayerWhisper(PlayerMessageEvent evt)
-        {
-            // Ignore the server player
-            if (evt.Sender.Equals(CodeHatch.Engine.Networking.Server.ServerPlayer))
-            {
-                return null;
-            }
-
-            // Call game-specific and universal hooks
-            object hookSpecific = Interface.Call("OnPlayerWhisper", evt);
-            //object hookUniversal = Interface.Call("OnPlayerChat", evt.Sender.IPlayer, evt.Message);
-            if (hookSpecific != null/* || hookUniversal != null*/)
-            {
-                // Cancel chat message event
-                evt.SetCancelled();
-                return true;
-            }
-
-            return null;
         }
 
         /// <summary>
