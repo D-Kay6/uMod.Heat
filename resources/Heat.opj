@@ -414,6 +414,60 @@
             "BaseHookName": "IOnPlayerGroupChat [internal]",
             "HookCategory": "Player"
           }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 77,
+            "ReturnBehavior": 0,
+            "ArgumentBehavior": 2,
+            "ArgumentString": null,
+            "HookTypeName": "Simple",
+            "Name": "IOnPlayerConnected [internal]",
+            "HookName": "IOnPlayerConnected",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "CodeHatch.Engine.Networking.CoreServer",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 0,
+              "Name": "OnPlayerJoinEarly",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "CodeHatch.Networking.Events.Players.PlayerJoinEvent"
+              ]
+            },
+            "MSILHash": "6ohs2VQBrmyCj/s0JI1V3MGSpxtL4RsJlp3GAaLjNWQ=",
+            "BaseHookName": null,
+            "HookCategory": "Player"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 0,
+            "ReturnBehavior": 0,
+            "ArgumentBehavior": 2,
+            "ArgumentString": null,
+            "HookTypeName": "Simple",
+            "Name": "IOnPlayerDisconnected [internal]",
+            "HookName": "IOnPlayerDisconnected",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "CodeHatch.Engine.Networking.CoreServer",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 0,
+              "Name": "OnPlayerLeaveEarly",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "CodeHatch.Networking.Events.Players.PlayerLeaveEvent"
+              ]
+            },
+            "MSILHash": "aHm19xSVC19BYBKkNSbz9UsvBLJ0AyefGO1/CWPkOd0=",
+            "BaseHookName": null,
+            "HookCategory": "Player"
+          }
+        },
+        {
           "Type": "Modify",
           "Hook": {
             "InjectionIndex": 29,
@@ -459,6 +513,32 @@
             "MSILHash": "XNKiadj7gRwHvWnlt1t4hvPbJj7UDhyK6YlZJlxHGq8=",
             "BaseHookName": "IOnServerCommand [internal]",
             "HookCategory": "_Patch"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 172,
+            "ReturnBehavior": 1,
+            "ArgumentBehavior": 4,
+            "ArgumentString": "l2",
+            "HookTypeName": "Simple",
+            "Name": "IOnPlayerConnect [internal]",
+            "HookName": "IOnPlayerConnect",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "CodeHatch.Engine.Networking.CoreServer",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 2,
+              "Name": "ProcessConnectionRequest",
+              "ReturnType": "ConnectionError",
+              "Parameters": [
+                "CodeHatch.Engine.Networking.ConnectionRequest"
+              ]
+            },
+            "MSILHash": "+miuJ3ubHmoxSXS00JcCcsZ6HA8KVoi2a/2OWAA0q5M=",
+            "BaseHookName": null,
+            "HookCategory": "Player"
           }
         }
       ],

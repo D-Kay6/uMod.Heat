@@ -101,12 +101,12 @@ namespace uMod.Heat
         /// <summary>
         /// Gets the version or build number of the server
         /// </summary>
-        public string Version => GameInfo.Version.ToString();
+        public string Version => GameInfo.VersionName;
 
         /// <summary>
         /// Gets the network protocol version of the server
         /// </summary>
-        public string Protocol => GameInfo.VersionName;
+        public string Protocol => GameInfo.Version.ToString();
 
         /// <summary>
         /// Gets the language set by the server
@@ -210,7 +210,7 @@ namespace uMod.Heat
             if (!string.IsNullOrEmpty(message))
             {
                 ulong avatarId = args.Length > 0 && args[0].IsSteamId() ? (ulong)args[0] : 0ul;
-                message = args.Length > 0 ? string.Format(Formatter.ToRoKAnd7DTD(message), avatarId != 0ul ? args.Skip(1) : args) : Formatter.ToPlaintext(message);
+                message = args.Length > 0 ? string.Format(Formatter.ToRoKAnd7DTD(message), avatarId != 0ul ? args.Skip(1) : args) : Formatter.ToRoKAnd7DTD(message);
                 Server.BroadcastMessage(prefix != null ? $"{prefix} {message}" : message);
             }
         }

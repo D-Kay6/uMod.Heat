@@ -68,7 +68,7 @@ namespace uMod.Heat
         private void Init()
         {
             // Configure remote error logging
-            RemoteLogger.SetTag("game", Title.ToLower());
+            RemoteLogger.SetTag("game", Title.ToLowerInvariant());
             RemoteLogger.SetTag("game version", Server.Version);
 
             // Add core plugin commands

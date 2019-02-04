@@ -1,4 +1,4 @@
-using CodeHatch.Common;
+﻿using CodeHatch.Common;
 using CodeHatch.Engine.Chat;
 using CodeHatch.Engine.Core.Commands;
 using CodeHatch.Engine.Networking;
@@ -22,24 +22,34 @@ namespace uMod.Heat
         /// </summary>
         /// <param name="player"></param>
         /// <returns></returns>
-        [HookMethod("IOnUserApprove")]
-        private object IOnUserApprove(Player player)
+        [HookMethod("IOnPlayerConnect")]
+        private object IOnPlayerConnect(Player player)
         {
-            // Let universal know player is joining
-            Universal.PlayerManager.PlayerJoin(player.Identifier, player.Name); // TODO: Handle this automatically
-
-            // Call universal hook
-            object canLogin = Interface.Call("CanPlayerLogin", player.Name, player.Identifier, player.Connection.IpAddress); // TODO: Handle potential NullReferenceException
-            if (canLogin is string || canLogin is bool && !(bool)canLogin)
+            if (player != null)
             {
-                // Reject the player with message
-                player.ShowPopup("Disconnected", canLogin is string ? canLogin.ToString() : "Connection was rejected"); // TODO: Localization
-                player.Connection.Close(); // TODO: Handle potential NullReferenceException
-                return ConnectionError.NoError;
-            }
+                // Let universal know player is joining
+                Universal.PlayerManager.PlayerJoin(player.Identifier, player.Name); // TODO: Handle this automatically
 
-            // Let plugins know
-            Interface.Call("OnPlayerApproved", player.Name, player.Identifier, player.Connection.IpAddress); // TODO: Handle potential NullReferenceException
+                // Call universal hook
+                object canLogin = Interface.Call("CanPlayerConnect", player.Name, player.Identifier, player.Connection.IpAddress); // TODO: Handle potential NullReferenceException
+                if (canLogin is string || canLogin is bool && !(bool)canLogin)
+                {
+                    // Reject the player with message
+                    if (CodeHatch.Engine.Networking.Server.PlayerIsQueued(player.ID))
+                    {
+                        player.ShowPopup("Disconnected", canLogin is string ? canLogin.ToString() : "Connection was rejected"); // TODO: Localization
+                        player.Connection.Close(); // TODO: Handle potential NullReferenceException
+                    }
+                    else
+                    {
+                        CodeHatch.Engine.Networking.Server.Kick(player, canLogin is string ? canLogin.ToString() : "Connection was rejected");
+                    }
+                    return ConnectionError.NoError;
+                }
+
+                // Let plugins know
+                Interface.Call("OnPlayerApproved", player.Name, player.Identifier, player.Connection.IpAddress); // TODO: Handle potential NullReferenceException
+            }
 
             return null;
         }
@@ -100,13 +110,13 @@ namespace uMod.Heat
         /// <summary>
         /// Called when the player has connected
         /// </summary>
-        /// <param name="heatPlayer"></param>
+        /// <param name="evt"></param>
         /// <returns></returns>
         [HookMethod("IOnPlayerConnected")]
-        private void IOnPlayerConnected(Player heatPlayer)
+        private void IOnPlayerConnected(PlayerJoinEvent evt)
         {
             // Ignore the server player
-            if (heatPlayer.Equals(CodeHatch.Engine.Networking.Server.ServerPlayer))
+            if (evt.Player.Equals(CodeHatch.Engine.Networking.Server.ServerPlayer)) // TODO: Handle potential NullReferenceException
             {
                 return;
             }
@@ -114,32 +124,32 @@ namespace uMod.Heat
             if (permission.IsLoaded)
             {
                 // Update player's stored username
-                permission.UpdateNickname(heatPlayer.Identifier, heatPlayer.Name);
+                permission.UpdateNickname(evt.Player.Identifier, evt.Player.Name);
 
                 // Set default groups, if necessary
                 uModConfig.DefaultGroups defaultGroups = Interface.uMod.Config.Options.DefaultGroups;
-                if (!permission.UserHasGroup(heatPlayer.Identifier, defaultGroups.Players))
+                if (!permission.UserHasGroup(evt.Player.Identifier, defaultGroups.Players))
                 {
-                    permission.AddUserGroup(heatPlayer.Identifier, defaultGroups.Players);
+                    permission.AddUserGroup(evt.Player.Identifier, defaultGroups.Players);
                 }
-                if (heatPlayer.HasPermission("admin") && !permission.UserHasGroup(heatPlayer.Identifier, defaultGroups.Administrators))
+                if (evt.Player.HasPermission("admin") && !permission.UserHasGroup(evt.Player.Identifier, defaultGroups.Administrators))
                 {
-                    permission.AddUserGroup(heatPlayer.Identifier, defaultGroups.Administrators);
+                    permission.AddUserGroup(evt.Player.Identifier, defaultGroups.Administrators);
                 }
             }
 
             // Let universal know player connected
-            Universal.PlayerManager.PlayerConnected(heatPlayer);
+            Universal.PlayerManager.PlayerConnected(evt.Player);
 
             // Call game-specific hook
-            Interface.Call("OnPlayerConnected", heatPlayer);
+            Interface.Call("OnPlayerConnected", evt.Player);
 
             // Find universal player
-            IPlayer player = Universal.PlayerManager.FindPlayerById(heatPlayer.Identifier);
+            IPlayer player = Universal.PlayerManager.FindPlayerById(evt.Player.Identifier);
             if (player != null)
             {
                 // Set IPlayer object on Player
-                heatPlayer.IPlayer = player;
+                evt.Player.IPlayer = player;
 
                 // Call universal hook
                 Interface.Call("OnPlayerConnected", player);
@@ -149,24 +159,24 @@ namespace uMod.Heat
         /// <summary>
         /// Called when the player has disconnected
         /// </summary>
-        /// <param name="heatPlayer"></param>
+        /// <param name="evt"></param>
         [HookMethod("IOnPlayerDisconnected")]
-        private void IOnPlayerDisconnected(Player heatPlayer)
+        private void IOnPlayerDisconnected(PlayerLeaveEvent evt)
         {
             // Ignore the server player
-            if (heatPlayer.Equals(CodeHatch.Engine.Networking.Server.ServerPlayer))
+            if (evt.Player.Equals(CodeHatch.Engine.Networking.Server.ServerPlayer)) // TODO: Handle potential NullReferenceException
             {
                 return;
             }
 
             // Call game-specific hook
-            Interface.Call("OnPlayerDisconnected", heatPlayer);
+            Interface.Call("OnPlayerDisconnected", evt.Player);
 
             // Call universal hook
-            Interface.Call("OnPlayerDisconnected", heatPlayer.IPlayer, lang.GetMessage("Unknown", this, heatPlayer.IPlayer.Id));
+            Interface.Call("OnPlayerDisconnected", evt.Player.IPlayer, lang.GetMessage("Unknown", this, evt.Player.IPlayer.Id));
 
             // Let universal know
-            Universal.PlayerManager.PlayerDisconnected(heatPlayer);
+            Universal.PlayerManager.PlayerDisconnected(evt.Player);
         }
 
         /// <summary>
