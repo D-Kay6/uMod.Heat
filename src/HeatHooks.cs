@@ -195,8 +195,8 @@ namespace uMod.Heat
 
             // Call game-specific and universal hooks
             object hookSpecific = Interface.Call("OnPlayerGroupChat", evt);
-            object hookUniversal = Interface.Call("OnPlayerChat", evt.Sender.IPlayer, evt.Message);
-            if (hookSpecific != null || hookUniversal != null)
+            //object hookUniversal = Interface.Call("OnPlayerChat", evt.Sender.IPlayer, evt.Message);
+            if (hookSpecific != null/* || hookUniversal != null*/)
             {
                 // Cancel chat message event
                 evt.SetCancelled();
@@ -222,8 +222,8 @@ namespace uMod.Heat
 
             // Call game-specific and universal hooks
             object hookSpecific = Interface.Call("OnPlayerWhisper", evt);
-            object hookUniversal = Interface.Call("OnPlayerChat", evt.Sender.IPlayer, evt.Message);
-            if (hookSpecific != null || hookUniversal != null)
+            //object hookUniversal = Interface.Call("OnPlayerChat", evt.Sender.IPlayer, evt.Message);
+            if (hookSpecific != null/* || hookUniversal != null*/)
             {
                 // Cancel chat message event
                 evt.SetCancelled();
