@@ -414,6 +414,52 @@
             "BaseHookName": "IOnPlayerGroupChat [internal]",
             "HookCategory": "Player"
           }
+          "Type": "Modify",
+          "Hook": {
+            "InjectionIndex": 29,
+            "RemoveCount": 0,
+            "Instructions": [
+              {
+                "OpCode": "ldloc_1",
+                "OpType": "None",
+                "Operand": null
+              },
+              {
+                "OpCode": "callvirt",
+                "OpType": "Method",
+                "Operand": "Assembly-CSharp|CodeHatch.Engine.Core.Commands.CommandAttribute|get_Permission"
+              },
+              {
+                "OpCode": "call",
+                "OpType": "Method",
+                "Operand": "mscorlib|System.String|IsNullOrEmpty"
+              },
+              {
+                "OpCode": "brtrue",
+                "OpType": "Instruction",
+                "Operand": 37
+              }
+            ],
+            "HookTypeName": "Modify",
+            "Name": "AllowPermissionless [patch]",
+            "HookName": "AllowPermissionless [patch]",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "CodeHatch.Engine.Core.Commands.CommandManager",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 2,
+              "Name": "ExecuteCommand",
+              "ReturnType": "System.Boolean",
+              "Parameters": [
+                "System.UInt64",
+                "System.String",
+                "System.String&"
+              ]
+            },
+            "MSILHash": "XNKiadj7gRwHvWnlt1t4hvPbJj7UDhyK6YlZJlxHGq8=",
+            "BaseHookName": "IOnServerCommand [internal]",
+            "HookCategory": "_Patch"
+          }
         }
       ],
       "Modifiers": [],

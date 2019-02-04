@@ -137,7 +137,7 @@ namespace uMod.Heat
 
             // Register command
             registeredCommands[command] = newCommand;
-            CommandManager.RegisteredCommands[command] = new CommandAttribute("/" + command, string.Empty)
+            CommandManager.RegisteredCommands[command] = new CommandAttribute("/" + command, string.Empty, "game.player.command") // TODO: Add description support
             {
                 Method = (Action<CommandInfo>)Delegate.CreateDelegate(typeof(Action<CommandInfo>), this,
                     GetType().GetMethod(nameof(HandleCommand), BindingFlags.NonPublic | BindingFlags.Instance)) // TODO: Handle potential NullReferenceException

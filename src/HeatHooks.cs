@@ -1,4 +1,4 @@
-﻿using CodeHatch.Common;
+using CodeHatch.Common;
 using CodeHatch.Engine.Chat;
 using CodeHatch.Engine.Core.Commands;
 using CodeHatch.Engine.Networking;
@@ -306,7 +306,7 @@ namespace uMod.Heat
         private object IOnServerCommand(CommandInfo cmdInfo)
         {
             // Call universal hook
-            if (Interface.Call("OnServerCommand", cmdInfo.Label, string.Join(" ", Array.ConvertAll(cmdInfo.Args, x => x.ToString()))) != null)
+            if (Interface.Call("OnServerCommand", cmdInfo.Label.ToLowerInvariant(), string.Join(" ", Array.ConvertAll(cmdInfo.Args, x => x.ToString()))) != null)
             {
                 return true;
             }
