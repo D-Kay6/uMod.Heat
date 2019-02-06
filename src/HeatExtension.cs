@@ -56,7 +56,7 @@ namespace uMod.Heat
         /// </summary>
         public override string[] DefaultReferences => new[]
         {
-            ""
+            "uLink"
         };
 
         /// <summary>
