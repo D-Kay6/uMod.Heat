@@ -56,7 +56,7 @@ namespace uMod.Heat
         /// </summary>
         public override string[] DefaultReferences => new[]
         {
-            "uLink"
+            "FullInspector", "uLink"
         };
 
         /// <summary>
@@ -64,7 +64,7 @@ namespace uMod.Heat
         /// </summary>
         public override string[] WhitelistAssemblies => new[]
         {
-            "Assembly-CSharp", "mscorlib", "System", "System.Core", "uMod", "uLink", "UnityEngine"
+            "Assembly-CSharp", "FullInspector", "mscorlib", "System", "System.Core", "uMod", "uLink", "UnityEngine"
         };
 
         /// <summary>
@@ -72,7 +72,7 @@ namespace uMod.Heat
         /// </summary>
         public override string[] WhitelistNamespaces => new[]
         {
-            "CodeHatch", "Steamworks", "System.Collections", "System.Security.Cryptography", "System.Text", "uLink", "UnityEngine"
+            "CodeHatch", "FullInspector", "Steamworks", "System.Collections", "System.Security.Cryptography", "System.Text", "uLink", "UnityEngine"
         };
 
         /// <summary>
