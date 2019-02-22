@@ -170,7 +170,7 @@ namespace uMod.Heat
         /// Kicks the player from the game
         /// </summary>
         /// <param name="reason"></param>
-        public void Kick(string reason) => Server.Kick(player, null, null, reason);
+        public void Kick(string reason) => Server.Kick(player, player.ID, player.Name, reason);
 
         /// <summary>
         /// Causes the player's character to die
