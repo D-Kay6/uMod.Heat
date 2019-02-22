@@ -157,7 +157,7 @@ namespace uMod.Heat
             if (!IsBanned(id))
             {
                 // Ban and kick user
-                Server.Ban(ulong.Parse(id), (int)duration.TotalSeconds, reason);
+                Server.Ban(null, ulong.Parse(id), null, reason, null, (int)duration.TotalSeconds);
             }
         }
 

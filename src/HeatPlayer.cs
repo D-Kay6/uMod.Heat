@@ -133,7 +133,7 @@ namespace uMod.Heat
             if (!IsBanned)
             {
                 // Ban and kick user
-                Server.Ban(steamId, (int)duration.TotalSeconds, reason);
+                Server.Ban(null, steamId, null, reason, null, (int)duration.TotalSeconds);
             }
         }
 
@@ -170,7 +170,7 @@ namespace uMod.Heat
         /// Kicks the player from the game
         /// </summary>
         /// <param name="reason"></param>
-        public void Kick(string reason) => Server.Kick(player, reason);
+        public void Kick(string reason) => Server.Kick(player, null, null, reason);
 
         /// <summary>
         /// Causes the player's character to die

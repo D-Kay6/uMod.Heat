@@ -42,7 +42,7 @@ namespace uMod.Heat
                     }
                     else
                     {
-                        CodeHatch.Engine.Networking.Server.Kick(player, canLogin is string ? canLogin.ToString() : "Connection was rejected");
+                        CodeHatch.Engine.Networking.Server.Kick(player, null, null, canLogin is string ? canLogin.ToString() : "Connection was rejected");
                     }
                     return ConnectionError.NoError;
                 }
