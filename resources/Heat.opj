@@ -68,7 +68,7 @@
             },
             "MSILHash": "mpkSkQyaMl1EvHx2potUrlbYCrChaGLNbjDTZQIKe/k=",
             "BaseHookName": null,
-            "HookCategory": "_Patch"
+            "HookCategory": "_Patches"
           }
         },
         {
@@ -110,7 +110,7 @@
             },
             "MSILHash": "PJc/kaVTiL3mS5Bk2ovYndIdA8bGEGBUmA/mkIKjVAQ=",
             "BaseHookName": null,
-            "HookCategory": "_Patch"
+            "HookCategory": "_Patches"
           }
         },
         {
@@ -263,25 +263,81 @@
         {
           "Type": "Simple",
           "Hook": {
-            "InjectionIndex": 83,
+            "InjectionIndex": 0,
             "ReturnBehavior": 0,
+            "ArgumentBehavior": 0,
+            "ArgumentString": null,
+            "HookTypeName": "Simple",
+            "Name": "OnEntityDeath",
+            "HookName": "OnEntityDeath",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "CodeHatch.Networking.Events.Listeners.PlayerListener",
+            "Flagged": true,
+            "Signature": {
+              "Exposure": 0,
+              "Name": "OnEntityDeath",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "CodeHatch.Networking.Events.Entities.EntityDeathEvent"
+              ]
+            },
+            "MSILHash": "GC3v0P6DK5qqxfEybK4n2TOUiGTpqkXYub0tsEQb/cE=",
+            "BaseHookName": null,
+            "HookCategory": "_Unfinished"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 0,
+            "ReturnBehavior": 0,
+            "ArgumentBehavior": 0,
+            "ArgumentString": null,
+            "HookTypeName": "Simple",
+            "Name": "OnMove",
+            "HookName": "OnMove",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "CodeHatch.Networking.Events.Listeners.PlayerListener",
+            "Flagged": true,
+            "Signature": {
+              "Exposure": 0,
+              "Name": "OnMove",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "System.UInt64",
+                "UnityEngine.Vector3",
+                "UnityEngine.Vector3",
+                "UnityEngine.Quaternion",
+                "UnityEngine.Vector3"
+              ]
+            },
+            "MSILHash": "99gKr8cDQKVWiQo8xjW1ZTMASgQoyKtbgjClJfQOmUc=",
+            "BaseHookName": null,
+            "HookCategory": "_Unfinished"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 0,
+            "ReturnBehavior": 1,
             "ArgumentBehavior": 2,
             "ArgumentString": null,
             "HookTypeName": "Simple",
-            "Name": "OnPlayerBanned",
-            "HookName": "OnPlayerBanned",
+            "Name": "OnPlayerNameChange",
+            "HookName": "OnPlayerNameChange",
             "AssemblyName": "Assembly-CSharp.dll",
             "TypeName": "CodeHatch.Networking.Events.Listeners.PlayerListener",
             "Flagged": false,
             "Signature": {
-              "Exposure": 0,
-              "Name": "OnPlayerBan",
+              "Exposure": 2,
+              "Name": "OnNameChange",
               "ReturnType": "System.Void",
               "Parameters": [
-                "CodeHatch.Networking.Events.Players.PlayerBanEvent"
+                "CodeHatch.Networking.Events.NameChangeEvent"
               ]
             },
-            "MSILHash": "FZkk+8n0zwgooEYlv8mZ6JWL5SP2RyXHKC3zILXr/xY=",
+            "MSILHash": "5NQ++bizlO4/nxjC2Q0EGrFgSXkVeJ9AYXN6fbnQOLc=",
             "BaseHookName": null,
             "HookCategory": "Player"
           }
@@ -289,32 +345,163 @@
         {
           "Type": "Simple",
           "Hook": {
-            "InjectionIndex": 47,
+            "InjectionIndex": 0,
             "ReturnBehavior": 0,
-            "ArgumentBehavior": 2,
+            "ArgumentBehavior": 0,
             "ArgumentString": null,
             "HookTypeName": "Simple",
-            "Name": "OnPlayerKicked",
-            "HookName": "OnPlayerKicked",
+            "Name": "OnPlayerFirstSpawnVeryEarly",
+            "HookName": "OnPlayerFirstSpawnVeryEarly",
             "AssemblyName": "Assembly-CSharp.dll",
             "TypeName": "CodeHatch.Networking.Events.Listeners.PlayerListener",
-            "Flagged": false,
+            "Flagged": true,
             "Signature": {
               "Exposure": 0,
-              "Name": "OnPlayerKick",
+              "Name": "OnPlayerFirstSpawnVeryEarly",
               "ReturnType": "System.Void",
               "Parameters": [
-                "CodeHatch.Networking.Events.Players.PlayerKickEvent"
+                "CodeHatch.Networking.Events.Players.PlayerFirstSpawnEvent"
               ]
             },
-            "MSILHash": "aSqcEcO7crDmcMdPSQ8iBNDRFEO1JzsmVnhT+lAU9ks=",
+            "MSILHash": "TX3BrgNTNsiFxVNGYWkaK+MqOU+WvZ5kKyi8ljmtjsM=",
             "BaseHookName": null,
-            "HookCategory": "Player"
+            "HookCategory": "_Unfinished"
           }
         },
         {
           "Type": "Simple",
           "Hook": {
+            "InjectionIndex": 0,
+            "ReturnBehavior": 0,
+            "ArgumentBehavior": 0,
+            "ArgumentString": null,
+            "HookTypeName": "Simple",
+            "Name": "OnPlayerFly",
+            "HookName": "OnPlayerFly",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "CodeHatch.Networking.Events.Listeners.PlayerListener",
+            "Flagged": true,
+            "Signature": {
+              "Exposure": 0,
+              "Name": "OnPlayerFly",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "CodeHatch.Networking.Events.Players.PlayerFlyEvent"
+              ]
+            },
+            "MSILHash": "SSkCY5iob3L1njxjDXEO9QJn+nvLCczJ54TU0DOl9Cg=",
+            "BaseHookName": null,
+            "HookCategory": "_Unfinished"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 0,
+            "ReturnBehavior": 0,
+            "ArgumentBehavior": 0,
+            "ArgumentString": null,
+            "HookTypeName": "Simple",
+            "Name": "OnPlayerReportRequest",
+            "HookName": "OnPlayerReportRequest",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "CodeHatch.Networking.Events.Listeners.PlayerListener",
+            "Flagged": true,
+            "Signature": {
+              "Exposure": 0,
+              "Name": "OnPlayerReportRequest",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "CodeHatch.Networking.Events.Players.PlayerReportRequestEvent"
+              ]
+            },
+            "MSILHash": "a5tjvUw40VZi42tNoSgGaCYX4FHWEZDjwUjVm7veAsE=",
+            "BaseHookName": null,
+            "HookCategory": "_Unfinished"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 0,
+            "ReturnBehavior": 0,
+            "ArgumentBehavior": 0,
+            "ArgumentString": null,
+            "HookTypeName": "Simple",
+            "Name": "OnPlayerReportSubmit",
+            "HookName": "OnPlayerReportSubmit",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "CodeHatch.Networking.Events.Listeners.PlayerListener",
+            "Flagged": true,
+            "Signature": {
+              "Exposure": 0,
+              "Name": "OnPlayerReportSubmit",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "CodeHatch.Networking.Events.Players.PlayerReportSubmitEvent"
+              ]
+            },
+            "MSILHash": "xykGQAHVVo79CYVeH7bqr5ab1gVcO4Vp9MRGgScm3qw=",
+            "BaseHookName": null,
+            "HookCategory": "_Unfinished"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 0,
+            "ReturnBehavior": 0,
+            "ArgumentBehavior": 2,
+            "ArgumentString": null,
+            "HookTypeName": "Simple",
+            "Name": "OnPlayerSleep",
+            "HookName": "OnPlayerSleep",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "CodeHatch.Networking.Events.Listeners.PlayerListener",
+            "Flagged": true,
+            "Signature": {
+              "Exposure": 0,
+              "Name": "OnPlayerSleep",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "CodeHatch.Networking.Events.Players.PlayerSleepEvent"
+              ]
+            },
+            "MSILHash": "xjyfXaLnA4cFj2aVHR2bNpGc1NP4s3h8H0kLu7wE6Xc=",
+            "BaseHookName": null,
+            "HookCategory": "_Unfinished"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 0,
+            "ReturnBehavior": 0,
+            "ArgumentBehavior": 0,
+            "ArgumentString": null,
+            "HookTypeName": "Simple",
+            "Name": "OnCharacterCreate",
+            "HookName": "OnCharacterCreate",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "CodeHatch.Engine.Networking.Player",
+            "Flagged": true,
+            "Signature": {
+              "Exposure": 0,
+              "Name": "OnCharacterCreate",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "CodeHatch.Networking.Events.Characters.CharacterCreateEvent"
+              ]
+            },
+            "MSILHash": "ah73dEUZ/jlysGL2Rb5qrhPkVkLmLYud4dmubMoAWAg=",
+            "BaseHookName": null,
+            "HookCategory": "_Unfinished"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 0,
             "ReturnBehavior": 1,
             "ArgumentBehavior": 2,
             "ArgumentString": null,
@@ -361,6 +548,370 @@
             "MSILHash": "/z2FCrSKS5LT/hQaMvthJX5klHroPH184N2b7nHKVc8=",
             "BaseHookName": null,
             "HookCategory": "Player"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 0,
+            "ReturnBehavior": 0,
+            "ArgumentBehavior": 0,
+            "ArgumentString": null,
+            "HookTypeName": "Simple",
+            "Name": "OnEntityDeath",
+            "HookName": "OnEntityDeath",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "CodeHatch.Networking.Events.Listeners.EntityListener",
+            "Flagged": true,
+            "Signature": {
+              "Exposure": 2,
+              "Name": "OnEntityDeath",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "CodeHatch.Networking.Events.Entities.EntityDeathEvent"
+              ]
+            },
+            "MSILHash": "U9n7Opile13yCS7buZbB722oQY8UINhRugzt4QPQkVA=",
+            "BaseHookName": null,
+            "HookCategory": "_Unfinished"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 0,
+            "ReturnBehavior": 0,
+            "ArgumentBehavior": 0,
+            "ArgumentString": null,
+            "HookTypeName": "Simple",
+            "Name": "OnEntityColor",
+            "HookName": "OnEntityColor",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "CodeHatch.Networking.Events.Listeners.EntityListener",
+            "Flagged": true,
+            "Signature": {
+              "Exposure": 0,
+              "Name": "OnEntityColor",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "CodeHatch.Networking.Events.Entities.EntityColorEvent"
+              ]
+            },
+            "MSILHash": "gH9b2yTAmZ4CzSbThg0KEHPbqDgnkRlKuyHielncLSE=",
+            "BaseHookName": null,
+            "HookCategory": "_Unfinished"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 0,
+            "ReturnBehavior": 0,
+            "ArgumentBehavior": 0,
+            "ArgumentString": null,
+            "HookTypeName": "Simple",
+            "Name": "OnEntityHealthChange",
+            "HookName": "OnEntityHealthChange",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "CodeHatch.Networking.Events.Listeners.EntityListener",
+            "Flagged": true,
+            "Signature": {
+              "Exposure": 2,
+              "Name": "OnEntityHealthChange",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "CodeHatch.Engine.Modules.Health.EntityHealthChangeEvent"
+              ]
+            },
+            "MSILHash": "20gpUi5aqvQ1ANUiuGa6sk6eBbmxZlDKWoa8uwYJGOU=",
+            "BaseHookName": null,
+            "HookCategory": "_Unfinished"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 0,
+            "ReturnBehavior": 0,
+            "ArgumentBehavior": 0,
+            "ArgumentString": null,
+            "HookTypeName": "Simple",
+            "Name": "OnEntityRename",
+            "HookName": "OnEntityRename",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "CodeHatch.Networking.Events.Listeners.EntityListener",
+            "Flagged": true,
+            "Signature": {
+              "Exposure": 0,
+              "Name": "OnEntityRename",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "CodeHatch.Networking.Events.Entities.EntityRenameEvent"
+              ]
+            },
+            "MSILHash": "yBwdgpKv1rhBy9LtuUWhhrIUY7TGUxP9YIM9ytQHhL0=",
+            "BaseHookName": null,
+            "HookCategory": "_Unfinished"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 0,
+            "ReturnBehavior": 0,
+            "ArgumentBehavior": 0,
+            "ArgumentString": null,
+            "HookTypeName": "Simple",
+            "Name": "OnObjectGrab",
+            "HookName": "OnObjectGrab",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "CodeHatch.Networking.Events.Listeners.EntityListener",
+            "Flagged": true,
+            "Signature": {
+              "Exposure": 0,
+              "Name": "OnObjectGrab",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "CodeHatch.Networking.Events.Entities.Objects.ObjectGrabEvent"
+              ]
+            },
+            "MSILHash": "eq/wjMBNU5YR3GF4RLR53rWmGNTwSpWNVcaShheqa8A=",
+            "BaseHookName": null,
+            "HookCategory": "_Unfinished"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 0,
+            "ReturnBehavior": 0,
+            "ArgumentBehavior": 0,
+            "ArgumentString": null,
+            "HookTypeName": "Simple",
+            "Name": "OnSiegeFire",
+            "HookName": "OnSiegeFire",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "CodeHatch.Networking.Events.Listeners.EntityListener",
+            "Flagged": true,
+            "Signature": {
+              "Exposure": 0,
+              "Name": "OnSiegeFire",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "CodeHatch.Siege.SiegeFireEvent"
+              ]
+            },
+            "MSILHash": "NEXddoZvG7yjkz0lJyzLDuByR2y+U/S+0BmZjoeGGqw=",
+            "BaseHookName": null,
+            "HookCategory": "_Unfinished"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 0,
+            "ReturnBehavior": 0,
+            "ArgumentBehavior": 0,
+            "ArgumentString": null,
+            "HookTypeName": "Simple",
+            "Name": "OnTamingComplete",
+            "HookName": "OnTamingComplete",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "CodeHatch.Networking.Events.Listeners.EntityListener",
+            "Flagged": true,
+            "Signature": {
+              "Exposure": 0,
+              "Name": "OnTamingComplete",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "CodeHatch.StatusEffects.TamingCompleteEvent"
+              ]
+            },
+            "MSILHash": "9HJ2g1QwUhC9TwgMTja+2+gcw5snM9B/VpfqRYqISTM=",
+            "BaseHookName": null,
+            "HookCategory": "_Unfinished"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 0,
+            "ReturnBehavior": 0,
+            "ArgumentBehavior": 0,
+            "ArgumentString": null,
+            "HookTypeName": "Simple",
+            "Name": "OnGadgetBegin",
+            "HookName": "OnGadgetBegin",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "CodeHatch.Networking.Events.Listeners.GadgetListener",
+            "Flagged": true,
+            "Signature": {
+              "Exposure": 0,
+              "Name": "OnGadgetBegin",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "CodeHatch.Networking.Events.Entities.Objects.Gadgets.GadgetBeginConsumeEvent"
+              ]
+            },
+            "MSILHash": "El1Y4NRf87sI6rCb0Y1xY9JfkaXam1znhKQqV8CAvXo=",
+            "BaseHookName": null,
+            "HookCategory": "_Unfinished"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 0,
+            "ReturnBehavior": 0,
+            "ArgumentBehavior": 0,
+            "ArgumentString": null,
+            "HookTypeName": "Simple",
+            "Name": "OnGadgetCancel",
+            "HookName": "OnGadgetCancel",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "CodeHatch.Networking.Events.Listeners.GadgetListener",
+            "Flagged": true,
+            "Signature": {
+              "Exposure": 0,
+              "Name": "OnGadgetCancel",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "CodeHatch.Networking.Events.Entities.Objects.Gadgets.GadgetCancelConsumeEvent"
+              ]
+            },
+            "MSILHash": "p9e5Mpl9YZ/9gYe9GeyMrLwfhBT1R1TmEnlb1VsrY4k=",
+            "BaseHookName": null,
+            "HookCategory": "_Unfinished"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 0,
+            "ReturnBehavior": 0,
+            "ArgumentBehavior": 0,
+            "ArgumentString": null,
+            "HookTypeName": "Simple",
+            "Name": "OnGadgetCollect",
+            "HookName": "OnGadgetCollect",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "CodeHatch.Networking.Events.Listeners.GadgetListener",
+            "Flagged": true,
+            "Signature": {
+              "Exposure": 0,
+              "Name": "OnGadgetCollect",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "CodeHatch.Networking.Events.Entities.Objects.Gadgets.GadgetCollectEvent"
+              ]
+            },
+            "MSILHash": "kv5rDNdZObCXOeGQqaCbxIlNvgv0PgU2utS5r8w6zz0=",
+            "BaseHookName": null,
+            "HookCategory": "_Unfinished"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 0,
+            "ReturnBehavior": 0,
+            "ArgumentBehavior": 0,
+            "ArgumentString": null,
+            "HookTypeName": "Simple",
+            "Name": "OnGadgetDisable",
+            "HookName": "OnGadgetDisable",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "CodeHatch.Networking.Events.Listeners.GadgetListener",
+            "Flagged": true,
+            "Signature": {
+              "Exposure": 0,
+              "Name": "OnGadgetDisable",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "CodeHatch.Networking.Events.Entities.Objects.Gadgets.GadgetDisableEvent"
+              ]
+            },
+            "MSILHash": "h5zP3TU0XWqk4zWkWQTfFifOhTXY3biBRlecBviW4zg=",
+            "BaseHookName": null,
+            "HookCategory": "_Unfinished"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 0,
+            "ReturnBehavior": 0,
+            "ArgumentBehavior": 0,
+            "ArgumentString": null,
+            "HookTypeName": "Simple",
+            "Name": "OnGadgetEnable",
+            "HookName": "OnGadgetEnable",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "CodeHatch.Networking.Events.Listeners.GadgetListener",
+            "Flagged": true,
+            "Signature": {
+              "Exposure": 0,
+              "Name": "OnGadgetEnable",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "CodeHatch.Networking.Events.Entities.Objects.Gadgets.GadgetEnableEvent"
+              ]
+            },
+            "MSILHash": "B8iCpHt7JytY40UyKIp3O9csjifSvZZYlRHfgSqf9Fk=",
+            "BaseHookName": null,
+            "HookCategory": "_Unfinished"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 0,
+            "ReturnBehavior": 0,
+            "ArgumentBehavior": 0,
+            "ArgumentString": null,
+            "HookTypeName": "Simple",
+            "Name": "OnGadgetPlace",
+            "HookName": "OnGadgetPlace",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "CodeHatch.Networking.Events.Listeners.GadgetListener",
+            "Flagged": true,
+            "Signature": {
+              "Exposure": 0,
+              "Name": "OnGadgetPlace",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "CodeHatch.Networking.Events.Entities.Objects.Gadgets.GadgetPlaceEvent"
+              ]
+            },
+            "MSILHash": "tCtScKFhSAISDQH3Bd3wVDfWLITggmYlJkcFs6tfpns=",
+            "BaseHookName": null,
+            "HookCategory": "_Unfinished"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 0,
+            "ReturnBehavior": 0,
+            "ArgumentBehavior": 0,
+            "ArgumentString": null,
+            "HookTypeName": "Simple",
+            "Name": "OnGadgetReposition",
+            "HookName": "OnGadgetReposition",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "CodeHatch.Networking.Events.Listeners.GadgetListener",
+            "Flagged": true,
+            "Signature": {
+              "Exposure": 0,
+              "Name": "OnGadgetReposition",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "CodeHatch.Networking.Events.Entities.Objects.Gadgets.GadgetRepositionEvent"
+              ]
+            },
+            "MSILHash": "2UdNbeCl7tAEemHpUqLH07Z8O+5q/bM0mmJyFmPTKdk=",
+            "BaseHookName": null,
+            "HookCategory": "_Unfinished"
           }
         },
         {
@@ -416,6 +967,32 @@
           }
         },
         {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 0,
+            "ReturnBehavior": 0,
+            "ArgumentBehavior": 0,
+            "ArgumentString": null,
+            "HookTypeName": "Simple",
+            "Name": "AddPlayerToQueueIfNecessary",
+            "HookName": "OnAddPlayerToQueueIfNecessary",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "CodeHatch.Engine.Networking.CoreServer",
+            "Flagged": true,
+            "Signature": {
+              "Exposure": 0,
+              "Name": "AddPlayerToQueueIfNecessary",
+              "ReturnType": "System.Boolean",
+              "Parameters": [
+                "CodeHatch.Engine.Networking.Player"
+              ]
+            },
+            "MSILHash": "HpAaymHlh8ESPH5gjalHIsvjmFRG6uzSPlsVOggsUgA=",
+            "BaseHookName": null,
+            "HookCategory": "_Unfinished"
+          }
+        },
+        {
           "Type": "Modify",
           "Hook": {
             "InjectionIndex": 29,
@@ -460,13 +1037,13 @@
             },
             "MSILHash": "XNKiadj7gRwHvWnlt1t4hvPbJj7UDhyK6YlZJlxHGq8=",
             "BaseHookName": "IOnServerCommand [internal]",
-            "HookCategory": "_Patch"
+            "HookCategory": "_Patches"
           }
         },
         {
           "Type": "Simple",
           "Hook": {
-            "InjectionIndex": 172,
+            "InjectionIndex": 177,
             "ReturnBehavior": 1,
             "ArgumentBehavior": 4,
             "ArgumentString": "l2",
@@ -484,7 +1061,71 @@
                 "CodeHatch.Engine.Networking.ConnectionRequest"
               ]
             },
-            "MSILHash": "+miuJ3ubHmoxSXS00JcCcsZ6HA8KVoi2a/2OWAA0q5M=",
+            "MSILHash": "7iHN6Hj59fVeA+L9OApcuMenD/R99/ODriNJDjO8pjM=",
+            "BaseHookName": null,
+            "HookCategory": "Player"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 288,
+            "ReturnBehavior": 0,
+            "ArgumentBehavior": 4,
+            "ArgumentString": "l1",
+            "HookTypeName": "Simple",
+            "Name": "OnPlayerBanned",
+            "HookName": "OnPlayerBanned",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "CodeHatch.Engine.Networking.CoreServer",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 2,
+              "Name": "Ban",
+              "ReturnType": "System.Boolean",
+              "Parameters": [
+                "CodeHatch.Engine.Networking.Player",
+                "System.UInt64",
+                "System.String",
+                "System.String",
+                "System.String",
+                "System.Int32",
+                "CodeHatch.Engine.Networking.KickDisplayFlags",
+                "System.Single"
+              ]
+            },
+            "MSILHash": "BQ0zczUy7o4cQrfaUNOQJbHqRsvRF/HrngQAPu3Oapw=",
+            "BaseHookName": null,
+            "HookCategory": "Player"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 109,
+            "ReturnBehavior": 0,
+            "ArgumentBehavior": 4,
+            "ArgumentString": "l1",
+            "HookTypeName": "Simple",
+            "Name": "OnPlayerKicked",
+            "HookName": "OnPlayerKicked",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "CodeHatch.Engine.Networking.CoreServer",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 2,
+              "Name": "Kick",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "CodeHatch.Engine.Networking.Player",
+                "System.UInt64",
+                "System.String",
+                "System.String",
+                "CodeHatch.Engine.Networking.KickDisplayFlags",
+                "System.Single"
+              ]
+            },
+            "MSILHash": "j9CbudePEdaM2QDLSOa5IQ5ct893uU93/Xv0p+OKKp0=",
             "BaseHookName": null,
             "HookCategory": "Player"
           }
