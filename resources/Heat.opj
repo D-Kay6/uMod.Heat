@@ -140,7 +140,7 @@
         {
           "Type": "Simple",
           "Hook": {
-            "InjectionIndex": 10,
+            "InjectionIndex": 14,
             "ReturnBehavior": 0,
             "ArgumentBehavior": 0,
             "ArgumentString": null,
@@ -158,7 +158,7 @@
                 "System.Single"
               ]
             },
-            "MSILHash": "pRYjjUUgUWGf7bUGY9YHGq1a2EszbPRxJ8DD5ICyDRM=",
+            "MSILHash": "oxN/XC86dKwiVcnihRVCzuFZ5AR8+zqXGatwwM8g6oM=",
             "BaseHookName": null,
             "HookCategory": "Server"
           }
@@ -182,7 +182,7 @@
               "ReturnType": "System.Void",
               "Parameters": []
             },
-            "MSILHash": "xxxSszOTLPqJiC9Qd4QZ2Eq0WuoPEAnoUIOXirpJL8I=",
+            "MSILHash": "2RGCvCZDaPJUYxFEohw3F7ig2tEWTLWHbVP9N0z5fqU=",
             "BaseHookName": null,
             "HookCategory": "Server"
           }
@@ -805,7 +805,7 @@
                 "CodeHatch.Networking.Events.Entities.Objects.Gadgets.GadgetCollectEvent"
               ]
             },
-            "MSILHash": "kv5rDNdZObCXOeGQqaCbxIlNvgv0PgU2utS5r8w6zz0=",
+            "MSILHash": "lMWN10FjbJM36GyMLGn0yTJbErB90lmxMQOhP1HBaq4=",
             "BaseHookName": null,
             "HookCategory": "_Unfinished"
           }
