@@ -1,4 +1,5 @@
 ﻿using CodeHatch.Build;
+using CodeHatch.Engine.Chronology;
 using CodeHatch.Engine.Core.Commands;
 using CodeHatch.Engine.Networking;
 using CodeHatch.Gaming;
@@ -132,8 +133,8 @@ namespace uMod.Heat
         /// </summary>
         public DateTime Time
         {
-            get => DateTime.Today.AddHours(GameClock.Instance.TimeOfDay);
-            set => EventManager.CallEvent(new TimeSetEvent(value.Hour, GameClock.Instance.DaySpeed));
+            get => DateTime.Today.AddHours(GameClock.Time);
+            set => EventManager.CallEvent(new TimeSetEvent(value.Hour, GameClock.Speed));
         }
 
         /// <summary>
