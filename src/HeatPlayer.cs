@@ -200,7 +200,7 @@ namespace uMod.Heat
         /// <param name="z"></param>
         public void Teleport(float x, float y, float z)
         {
-            Vector3 destination = player.Entity.Position; // TODO: Handle potential NullReferenceException
+            Vector3 destination = new Vector3(x, y, z);
             player.Entity.TryTeleport(new Vector3(destination.x + 1f, destination.y + 1f, destination.z + 1f));
         }
 
