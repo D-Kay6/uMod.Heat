@@ -133,7 +133,7 @@ namespace uMod.Heat
             if (!IsBanned)
             {
                 // Ban and kick user
-                Server.Ban(steamId, (int)duration.TotalSeconds, reason);
+                Server.Ban(null, steamId, null, reason, null, (int)duration.TotalSeconds);
             }
         }
 
@@ -170,7 +170,7 @@ namespace uMod.Heat
         /// Kicks the player from the game
         /// </summary>
         /// <param name="reason"></param>
-        public void Kick(string reason) => Server.Kick(player, reason);
+        public void Kick(string reason) => Server.Kick(player, player.ID, player.Name, reason);
 
         /// <summary>
         /// Causes the player's character to die
@@ -200,7 +200,7 @@ namespace uMod.Heat
         /// <param name="z"></param>
         public void Teleport(float x, float y, float z)
         {
-            Vector3 destination = player.Entity.Position; // TODO: Handle potential NullReferenceException
+            Vector3 destination = new Vector3(x, y, z);
             player.Entity.TryTeleport(new Vector3(destination.x + 1f, destination.y + 1f, destination.z + 1f));
         }
 
