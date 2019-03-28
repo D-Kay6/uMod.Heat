@@ -649,7 +649,7 @@
                 "CodeHatch.Networking.Events.Entities.EntityRenameEvent"
               ]
             },
-            "MSILHash": "yBwdgpKv1rhBy9LtuUWhhrIUY7TGUxP9YIM9ytQHhL0=",
+            "MSILHash": "LE42lSqyvu7DgoFKC6tt6hBQ+FKJF81aHG45JVV5Yr0=",
             "BaseHookName": null,
             "HookCategory": "_Unfinished"
           }
@@ -805,7 +805,7 @@
                 "CodeHatch.Networking.Events.Entities.Objects.Gadgets.GadgetCollectEvent"
               ]
             },
-            "MSILHash": "lMWN10FjbJM36GyMLGn0yTJbErB90lmxMQOhP1HBaq4=",
+            "MSILHash": "avdIzJnSk1sLzNw60Ym6Z0TM+Lyza9vniB97TIg5agE=",
             "BaseHookName": null,
             "HookCategory": "_Unfinished"
           }
@@ -987,7 +987,7 @@
                 "CodeHatch.Engine.Networking.Player"
               ]
             },
-            "MSILHash": "HpAaymHlh8ESPH5gjalHIsvjmFRG6uzSPlsVOggsUgA=",
+            "MSILHash": "rvhRMV10pqaVAJvLU9ua7OQnXMwZTbzdh0qg6brwCGc=",
             "BaseHookName": null,
             "HookCategory": "_Unfinished"
           }
