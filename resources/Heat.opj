@@ -268,7 +268,7 @@
             "ArgumentBehavior": 0,
             "ArgumentString": null,
             "HookTypeName": "Simple",
-            "Name": "OnEntityDeath",
+            "Name": "OnPlayerDeath",
             "HookName": "OnEntityDeath",
             "AssemblyName": "Assembly-CSharp.dll",
             "TypeName": "CodeHatch.Networking.Events.Listeners.PlayerListener",
@@ -553,16 +553,16 @@
         {
           "Type": "Simple",
           "Hook": {
-            "InjectionIndex": 0,
-            "ReturnBehavior": 0,
-            "ArgumentBehavior": 0,
+            "InjectionIndex": 44,
+            "ReturnBehavior": 1,
+            "ArgumentBehavior": 2,
             "ArgumentString": null,
             "HookTypeName": "Simple",
             "Name": "OnEntityDeath",
             "HookName": "OnEntityDeath",
             "AssemblyName": "Assembly-CSharp.dll",
             "TypeName": "CodeHatch.Networking.Events.Listeners.EntityListener",
-            "Flagged": true,
+            "Flagged": false,
             "Signature": {
               "Exposure": 2,
               "Name": "OnEntityDeath",
@@ -573,7 +573,7 @@
             },
             "MSILHash": "U9n7Opile13yCS7buZbB722oQY8UINhRugzt4QPQkVA=",
             "BaseHookName": null,
-            "HookCategory": "_Unfinished"
+            "HookCategory": "Entity"
           }
         },
         {
