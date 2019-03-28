@@ -1129,6 +1129,32 @@
             "BaseHookName": null,
             "HookCategory": "Player"
           }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 22,
+            "ReturnBehavior": 1,
+            "ArgumentBehavior": 2,
+            "ArgumentString": null,
+            "HookTypeName": "Simple",
+            "Name": "OnTamingSync",
+            "HookName": "OnTamingSync",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "CodeHatch.Networking.Events.Listeners.EntityListener",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 0,
+              "Name": "OnTamingSync",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "CodeHatch.StatusEffects.TamingSyncEvent"
+              ]
+            },
+            "MSILHash": "AvC4oK1Q0f7BuzrpexoWrpphoOU2t1qMApI3Cdmm9H0=",
+            "BaseHookName": null,
+            "HookCategory": "Taming"
+          }
         }
       ],
       "Modifiers": [],
