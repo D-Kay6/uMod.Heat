@@ -1,6 +1,6 @@
 {
   "Name": "Heat",
-  "TargetDirectory": "D:\\Servers\\Heat\\Heat_Data\\Managed",
+  "TargetDirectory": "D:\\Dropbox\\Damian\\Repositories\\Visual Studio\\Heat Plugins\\Hooking - kopie",
   "Manifests": [
     {
       "AssemblyName": "Assembly-CSharp.dll",
@@ -709,16 +709,16 @@
         {
           "Type": "Simple",
           "Hook": {
-            "InjectionIndex": 0,
-            "ReturnBehavior": 0,
-            "ArgumentBehavior": 0,
-            "ArgumentString": null,
+            "InjectionIndex": 27,
+            "ReturnBehavior": 1,
+            "ArgumentBehavior": 2,
+            "ArgumentString": "",
             "HookTypeName": "Simple",
             "Name": "OnTamingComplete",
             "HookName": "OnTamingComplete",
             "AssemblyName": "Assembly-CSharp.dll",
             "TypeName": "CodeHatch.Networking.Events.Listeners.EntityListener",
-            "Flagged": true,
+            "Flagged": false,
             "Signature": {
               "Exposure": 0,
               "Name": "OnTamingComplete",
@@ -729,7 +729,7 @@
             },
             "MSILHash": "9HJ2g1QwUhC9TwgMTja+2+gcw5snM9B/VpfqRYqISTM=",
             "BaseHookName": null,
-            "HookCategory": "_Unfinished"
+            "HookCategory": "Taming"
           }
         },
         {
