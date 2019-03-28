@@ -1,6 +1,6 @@
 {
   "Name": "Heat",
-  "TargetDirectory": "D:\\Dropbox\\Damian\\Repositories\\Visual Studio\\Heat Plugins\\Hooking - kopie",
+  "TargetDirectory": "D:\\Servers\\Heat\\Heat_Data\\Managed",
   "Manifests": [
     {
       "AssemblyName": "Assembly-CSharp.dll",
