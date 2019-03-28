@@ -605,16 +605,16 @@
         {
           "Type": "Simple",
           "Hook": {
-            "InjectionIndex": 0,
-            "ReturnBehavior": 0,
-            "ArgumentBehavior": 0,
+            "InjectionIndex": 41,
+            "ReturnBehavior": 1,
+            "ArgumentBehavior": 2,
             "ArgumentString": null,
             "HookTypeName": "Simple",
             "Name": "OnEntityHealthChange",
             "HookName": "OnEntityHealthChange",
             "AssemblyName": "Assembly-CSharp.dll",
             "TypeName": "CodeHatch.Networking.Events.Listeners.EntityListener",
-            "Flagged": true,
+            "Flagged": false,
             "Signature": {
               "Exposure": 2,
               "Name": "OnEntityHealthChange",
@@ -625,7 +625,7 @@
             },
             "MSILHash": "20gpUi5aqvQ1ANUiuGa6sk6eBbmxZlDKWoa8uwYJGOU=",
             "BaseHookName": null,
-            "HookCategory": "_Unfinished"
+            "HookCategory": "Entity"
           }
         },
         {
