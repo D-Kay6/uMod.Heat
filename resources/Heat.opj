@@ -631,16 +631,16 @@
         {
           "Type": "Simple",
           "Hook": {
-            "InjectionIndex": 0,
+            "InjectionIndex": 57,
             "ReturnBehavior": 0,
-            "ArgumentBehavior": 0,
+            "ArgumentBehavior": 2,
             "ArgumentString": null,
             "HookTypeName": "Simple",
             "Name": "OnEntityRename",
             "HookName": "OnEntityRename",
             "AssemblyName": "Assembly-CSharp.dll",
             "TypeName": "CodeHatch.Networking.Events.Listeners.EntityListener",
-            "Flagged": true,
+            "Flagged": false,
             "Signature": {
               "Exposure": 0,
               "Name": "OnEntityRename",
@@ -651,7 +651,7 @@
             },
             "MSILHash": "LE42lSqyvu7DgoFKC6tt6hBQ+FKJF81aHG45JVV5Yr0=",
             "BaseHookName": null,
-            "HookCategory": "_Unfinished"
+            "HookCategory": "Entity"
           }
         },
         {
