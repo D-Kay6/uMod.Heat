@@ -1155,6 +1155,32 @@
             "BaseHookName": null,
             "HookCategory": "Taming"
           }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 0,
+            "ReturnBehavior": 0,
+            "ArgumentBehavior": 2,
+            "ArgumentString": null,
+            "HookTypeName": "Simple",
+            "Name": "OnPlayerLoaded",
+            "HookName": "OnPlayerLoaded",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "CodeHatch.Engine.Networking.CoreServer",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 0,
+              "Name": "OnPlayerLoaded",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "CodeHatch.Networking.Events.Players.PlayerLoadedEvent"
+              ]
+            },
+            "MSILHash": "fi0p7cjxTHQ0vwhxZ5WxspV3U4Z+nM/6CrMkwRrLafk=",
+            "BaseHookName": null,
+            "HookCategory": "Player"
+          }
         }
       ],
       "Modifiers": [],
